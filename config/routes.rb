@@ -1,4 +1,8 @@
 WorkAndBurp::Application.routes.draw do
+  root :to => 'Workspace#index'
+  
+  get 'workspace/index'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
