@@ -19,13 +19,24 @@ class WorkspaceController < ApplicationController
     consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
     access_token = OAuth::AccessToken.new(consumer, token, token_secret)
 
-    path = "/v2/search?term=#{@search_term}&ll=#{@lat},#{@lon},#{@acc}&limit=5&radius_filter=2000&sort=1"
+    path = "/v2/search?term=#{@search_term}&ll=#{@lat},#{@lon}&limit=5&radius_filter=2000&sort=1"
 
     @responseyelp = JSON.parse(access_token.get(path).body)
 
-    @lat = cookies[:lat].to_f
-    @lon = cookies[:lon].to_f
-    @acc = cookies[:acc]
+    latitude = cookies[:lat]
+    longitude = cookies[:lon]
+
+    def split(a)
+        b = "%.6f" % a
+        return b
+    end
+
+    @lat = split(latitude.to_f)
+    @lon = split(longitude.to_f)
+
+    # @lat = cookies[:lat].@split
+    # @lon = cookies[:lon].@split
+    # @acc = cookies[:acc]
 
     @response_citygrid = JSON.parse(open("http://api.citygridmedia.com/content/places/v2/search/latlon?what=B.Y.O.B&lat=#{@lat}&lon=#{@lon}&radius=7&page=1&rpp=3&sort=topmatches&publisher=test&format=json").read)
 
