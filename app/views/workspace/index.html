@@ -1,14 +1,15 @@
 
 <header class="row">
-  <div class="six coloumns centered">
-    <img class="logo" src="assets/mascot.png">
+  <div class="three columns">
+    <img class="logo" src="assets/worknburp.png">
+  </div>
+  <div class="nine columns">
     <h2><small>Get your</small> Work &amp Burp <small>on @ the following locations:</small>
   </div>
 </header>
 
 <div class="row">
   <section class="five columns results-col">
-
     <h2>Listings:</h2>
 
     <ul class="businesses">
@@ -22,8 +23,7 @@
 
         <li class="business-address">
           Address: <%= biz_hash['address']['street']%>,<br>
-          <%= biz_hash['address']['city']%>, <%= biz_hash['address']['state']%> <%= biz_hash['address']['postal_code']%>
-          
+          <%= biz_hash['address']['city']%>, <%= biz_hash['address']['state']%> <%= biz_hash['address']['postal_code']%>    
         </li>
 
         <li class="business-phone">
@@ -32,14 +32,10 @@
       <% end  %>
     </ul>
 
-
-
-
   </section>
   <section class="seven columns map-col">
     Google map location containing pins where the places are located
-
     <%= @responseyelp %>
-
   </section>
+  <footer></footer>
 </div> 
