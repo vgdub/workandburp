@@ -5,11 +5,13 @@ body{
 header{
 line-height: 4em;
 }
+h2{
+  font-size: 20px;
+}
 section{
   border-radius: 5px;
+  box-shadow: 0 0 15px #cBa104;
 }
-
-
 .results-col, .map-col {
   background: #Facc14;
   height: 500px;
@@ -30,6 +32,7 @@ section{
 
 .business-name {
   height: 24px;
+  border-bottom: 3px solid #fbd84b;
   line-height: 24px;
   font-size: 24px;
   color: #404040;
@@ -37,7 +40,6 @@ section{
 }
 
 .business-name:hover, .business-name a:hover {
-  color: white;
   background-color: #FF6C00;
 }
 
