@@ -5,10 +5,10 @@ require 'json'
 class WorkspaceController < ApplicationController
   def index
 
-    consumer_key = 'y6kx_rHeXbGuTAzI6Y1ouw'
-    consumer_secret = 'L85XGxL7KnneXEry_BGgDByb584'
-    token = 'uC4XhkX-jcecnAnw4mQAmVxxKsrocQDY'
-    token_secret = 'myoGPfJlOz3AIk1Tlj8eyq2L6Wo'
+    consumer_key = 'j12f--Z2aQgpU4NxiJ1OZQ'
+    consumer_secret = 'rPOFIoC9PVY6_Tre3VZI3rUFBqI'
+    token = '-fCcp8oYoTyyODk8RBf_4Mpg7OePUZ05'
+    token_secret = 'HrwOxqpIxMTaCM_oA5Wk_pNzR9s'
 
     api_host = 'api.yelp.com'
 
@@ -19,7 +19,7 @@ class WorkspaceController < ApplicationController
     consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
     access_token = OAuth::AccessToken.new(consumer, token, token_secret)
 
-    path = "/v2/search?term=#{@search_term}&ll=#{@lat},#{@lon}&limit=5&radius_filter=2000&sort=1"
+    path = "/v2/search?term=#{@search_term}&ll=#{@lat},#{@lon},#{@acc}&limit=5&radius_filter=2000&sort=1"
 
     @responseyelp = JSON.parse(access_token.get(path).body)
 
