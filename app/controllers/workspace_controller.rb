@@ -5,10 +5,10 @@ require 'json'
 class WorkspaceController < ApplicationController
   def index
 
-    consumer_key = 'y6kx_rHeXbGuTAzI6Y1ouw'
-    consumer_secret = 'L85XGxL7KnneXEry_BGgDByb584'
-    token = 'uC4XhkX-jcecnAnw4mQAmVxxKsrocQDY'
-    token_secret = 'myoGPfJlOz3AIk1Tlj8eyq2L6Wo'
+    consumer_key = 'j12f--Z2aQgpU4NxiJ1OZQ'
+    consumer_secret = 'rPOFIoC9PVY6_Tre3VZI3rUFBqI'
+    token = '-fCcp8oYoTyyODk8RBf_4Mpg7OePUZ05'
+    token_secret = 'HrwOxqpIxMTaCM_oA5Wk_pNzR9s'
 
     api_host = 'api.yelp.com'
 
