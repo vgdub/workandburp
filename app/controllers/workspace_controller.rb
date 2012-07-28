@@ -1,5 +1,6 @@
 require 'open-uri'
 require 'json'
+require 'oauth'
 
 class WorkspaceController < ApplicationController
   def index
@@ -19,15 +20,13 @@ class WorkspaceController < ApplicationController
 
     path = "/v2/search?term=#{@search_term}&location=#{@local_zip}&limit=5&radius_filter=2000&sort=1"
 
-    # @response = JSON.parse(access_token.get(path).body)
-
-    # @response = JSON.parse(open("http://api.citygridmedia.com/content/places/v2/search/where?what=B.Y.O.B&where=60654&radius=.5&page=1&rpp=3&sort=dist&publisher=test&format=json").read)
+    @response_yelp = JSON.parse(access_token.get(path).body)
 
     @lat = cookies[:lat].to_f
     @lon = cookies[:lon].to_f
     @acc = cookies[:acc]
 
-    @response = JSON.parse(open("http://api.citygridmedia.com/content/places/v2/search/latlon?what=wifi&lat=#{@lat}&lon=#{@lon}&radius=7&page=1&rpp=3&sort=topmatches&publisher=test&format=json").read)
+    @response_citygrid = JSON.parse(open("http://api.citygridmedia.com/content/places/v2/search/latlon?what=B.Y.O.B&lat=#{@lat}&lon=#{@lon}&radius=7&page=1&rpp=3&sort=topmatches&publisher=test&format=json").read)
 
     
 
