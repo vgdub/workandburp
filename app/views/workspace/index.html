@@ -13,21 +13,21 @@
     <h2>Listings:</h2>
 
     <ul class="businesses">
-      <% @response_citygrid['results']['locations'].each do |biz_hash| %>
+      <% @response_citygrid['results']['locations'].each do |citygrid_hash| %>
         <li>
-          <% if biz_hash['profile'] == nil %>
-            <h3><%= biz_hash['name']%></h3>
+          <% if citygrid_hash['profile'] == nil %>
+            <h3><%= citygrid_hash['name']%></h3>
           <% else %>
-          <a href="<%= biz_hash['profile'] %>" class="business-name"><%= biz_hash['name']%></a></li>
+          <a href="<%= citygrid_hash['profile'] %>" class="business-name"><%= citygrid_hash['name']%></a></li>
           <% end %>
 
         <li class="business-address">
-          Address: <%= biz_hash['address']['street']%>,<br>
-          <%= biz_hash['address']['city']%>, <%= biz_hash['address']['state']%> <%= biz_hash['address']['postal_code']%>    
+          Address: <%= citygrid_hash['address']['street']%>,<br>
+          <%= citygrid_hash['address']['city']%>, <%= citygrid_hash['address']['state']%> <%= citygrid_hash['address']['postal_code']%>    
         </li>
 
         <li class="business-phone">
-          Phone: <%=biz_hash['phone_number']%>
+          Phone: <%=citygrid_hash['phone_number']%>
         </li>
       <% end  %>
     </ul>
@@ -35,7 +35,22 @@
   </section>
   <section class="seven columns map-col">
     Google map location containing pins where the places are located
-    <%= @responseyelp %>
+
+    <ul class="businesses">
+      <% @responseyelp['businesses'].each do |biz_hash| %>
+        <li><a href="<%= biz_hash['url'] %>" class="business-name"><%= biz_hash['name']%></a></li>
+
+        <li class="business-address">
+          Address: <%=biz_hash['location']['display_address'].first%>,<br>
+          <%= biz_hash['location']['display_address'].last%>
+        </li>
+
+        <li class="business-phone">
+          Phone: <%=biz_hash['display_phone']%>
+        </li>
+      <% end  %>
+    </ul>
+
   </section>
   <footer></footer>
 </div> 
