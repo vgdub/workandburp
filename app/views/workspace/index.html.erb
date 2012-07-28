@@ -1,1 +1,15 @@
-<%=@response%>
+
+
+<% def address ad_array%>
+ <% puts ad_array.first + ad_array.last %>
+<%end%>
+
+<ul>
+<% @response['businesses'].each do |biz_hash| %>
+	<li><%= link_to biz_hash['name'], biz_hash['url'] %></li>
+	<li><%=biz_hash['location.city']}"%></li>
+<% end  %>
+</ul>
+
+
+	

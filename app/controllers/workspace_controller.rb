@@ -7,10 +7,14 @@ class WorkspaceController < ApplicationController
 
     api_host = 'api.yelp.com'
 
+    @search_term = "wifi"
+    
+    @local_zip = "60614"
+
     consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
     access_token = OAuth::AccessToken.new(consumer, token, token_secret)
 
-    path = "/v2/search?term=restaurants&location=new%20york"
+    path = "/v2/search?term=byob+#{@search_term}&location=#{@local_zip}&limit=5&radius_filter=2000&sort=1#open_now=7349"
 
     @response = JSON.parse(access_token.get(path).body)
 
