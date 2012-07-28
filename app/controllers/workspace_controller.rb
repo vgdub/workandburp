@@ -19,7 +19,7 @@ class WorkspaceController < ApplicationController
     consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
     access_token = OAuth::AccessToken.new(consumer, token, token_secret)
 
-    path = "/v2/search?term=#{@search_term}&ll=#{@lat},#{@lon}&limit=5&radius_filter=2000&sort=1"
+    path = "/v2/search?term=#{@search_term}&ll=#{@lat},#{@lon},#{@acc}&limit=5&radius_filter=2000&sort=1"
 
     @responseyelp = JSON.parse(access_token.get(path).body)
 
