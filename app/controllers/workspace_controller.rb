@@ -18,8 +18,12 @@ class WorkspaceController < ApplicationController
 
     @response = JSON.parse(access_token.get(path).body)
 
+    @lat = cookies[:lat].to_f
+    @long = cookies[:long].to_f
+    @acc = cookies[:acc].
+
     # perform an address/location-based search for cream puffs nearby
-    # request = Yelp::V1::Review::Request::Location.new(
+    # request = Yelp::V1::Review::Request::Location.new(=
     #             :address => '222 Merchandise Mart',
     #             :city => 'Chicago',
     #             :state => 'IL',

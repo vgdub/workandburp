@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require foundation
 //= require_tree .
+
+function getGeoLocation() {
+    navigator.geolocation.getCurrentPosition(setGeoCookie);
+}
+
+function setGeoCookie(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    var accuracy = position.coords.accuracy;
+
+    document.cookie = "lat=" + escape(latitude);
+    document.cookie = "long=" + escape(longitude);
+    document.cookie = "acc=" + escape(accuracy);
+}
