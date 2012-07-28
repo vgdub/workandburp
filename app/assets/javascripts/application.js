@@ -16,7 +16,8 @@
 //= require_tree .
 
 function getGeoLocation() {
-    navigator.geolocation.getCurrentPosition(setGeoCookie);
+	position = navigator.geolocation.getCurrentPosition();
+	setGeoCookie(position);
 }
 
 function setGeoCookie(position) {
@@ -25,6 +26,6 @@ function setGeoCookie(position) {
     var accuracy = position.coords.accuracy;
 
     document.cookie = "lat=" + escape(latitude);
-    document.cookie = "long=" + escape(longitude);
+    document.cookie = "lon=" + escape(longitude);
     document.cookie = "acc=" + escape(accuracy);
 }

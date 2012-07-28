@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'json'
+
 class WorkspaceController < ApplicationController
   def index
     consumer_key = 'y6kx_rHeXbGuTAzI6Y1ouw'
@@ -14,13 +17,20 @@ class WorkspaceController < ApplicationController
     consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
     access_token = OAuth::AccessToken.new(consumer, token, token_secret)
 
-    path = "/v2/search?term=byob+#{@search_term}&location=#{@local_zip}&limit=5&radius_filter=2000&sort=1#open_now=7349"
+    path = "/v2/search?term=#{@search_term}&location=#{@local_zip}&limit=5&radius_filter=2000&sort=1"
 
-    @response = JSON.parse(access_token.get(path).body)
+    # @response = JSON.parse(access_token.get(path).body)
+
+    # @response = JSON.parse(open("http://api.citygridmedia.com/content/places/v2/search/where?what=B.Y.O.B&where=60654&radius=.5&page=1&rpp=3&sort=dist&publisher=test&format=json").read)
 
     @lat = cookies[:lat].to_f
-    @long = cookies[:long].to_f
-    @acc = cookies[:acc].
+    @lon = cookies[:lon].to_f
+    @acc = cookies[:acc]
+
+    @response = JSON.parse(open("http://api.citygridmedia.com/content/places/v2/search/latlon?what=wifi&lat=#{@lat}&lon=#{@lon}&radius=7&page=1&rpp=3&sort=topmatches&publisher=test&format=json").read)
+
+    
+
 
     # perform an address/location-based search for cream puffs nearby
     # request = Yelp::V1::Review::Request::Location.new(=
