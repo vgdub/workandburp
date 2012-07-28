@@ -1,0 +1,45 @@
+
+<header class="row">
+  <div class="six coloumns centered">
+    <img class="logo" src="assets/mascot.png">
+    <h2><small>Get your</small> Work &amp Burp <small>on @ the following locations:</small>
+  </div>
+</header>
+
+<div class="row">
+  <section class="five columns results-col">
+
+    <h2>Listings:</h2>
+
+    <ul class="businesses">
+      <% @response_citygrid['results']['locations'].each do |biz_hash| %>
+        <li>
+          <% if biz_hash['profile'] == nil %>
+            <h3><%= biz_hash['name']%></h3>
+          <% else %>
+          <a href="<%= biz_hash['profile'] %>" class="business-name"><%= biz_hash['name']%></a></li>
+          <% end %>
+
+        <li class="business-address">
+          Address: <%= biz_hash['address']['street']%>,<br>
+          <%= biz_hash['address']['city']%>, <%= biz_hash['address']['state']%> <%= biz_hash['address']['postal_code']%>
+          
+        </li>
+
+        <li class="business-phone">
+          Phone: <%=biz_hash['phone_number']%>
+        </li>
+      <% end  %>
+    </ul>
+
+
+
+
+  </section>
+  <section class="seven columns map-col">
+    Google map location containing pins where the places are located
+
+    <%= @responseyelp %>
+
+  </section>
+</div> 

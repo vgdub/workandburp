@@ -1,0 +1,56 @@
+body{
+  background-color: #e5e5e5;
+  font-family: 'Advent Pro', sans-serif;
+}
+header{
+  /*font-size: 30px;*/
+  /*margin: 10px;*/
+  height: 120px;
+}
+
+.logo {
+  max-width: 100px;
+}
+
+.results-col, .map-col {
+  background: #FF6C00;
+  /*border: 5px solid #FF6C00;*/
+  /*margin: 10px;*/
+  height: 500px;
+  overflow: scroll;
+}
+
+.businesses {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.businesses li {
+  display: block;
+  margin: 15px auto;
+}
+
+.business-name {
+  height: 24px;
+  line-height: 24px;
+  font-size: 24px;
+  background-color: #ff984c;
+  color: #404040;
+  position: inline-block;
+}
+
+.business-name:hover, .business-name a:hover {
+  color: white;
+  background-color: #FF6C00;
+}
+
+.business-address{
+  font-size: ;
+  word-spacing: .7px;
+
+}
+
+.business-phone {
+  margin-top: 5px;
+}
