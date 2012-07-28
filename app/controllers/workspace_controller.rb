@@ -1,9 +1,10 @@
 require 'open-uri'
 require 'json'
-require 'oauth'
+
 
 class WorkspaceController < ApplicationController
   def index
+
     consumer_key = 'y6kx_rHeXbGuTAzI6Y1ouw'
     consumer_secret = 'L85XGxL7KnneXEry_BGgDByb584'
     token = 'uC4XhkX-jcecnAnw4mQAmVxxKsrocQDY'
@@ -13,14 +14,14 @@ class WorkspaceController < ApplicationController
 
     @search_term = "wifi"
     
-    @local_zip = "60614"
+    # @local_zip = "60614"
 
     consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
     access_token = OAuth::AccessToken.new(consumer, token, token_secret)
 
-    path = "/v2/search?term=#{@search_term}&location=#{@local_zip}&limit=5&radius_filter=2000&sort=1"
+    path = "/v2/search?term=#{@search_term}&ll=#{@lat},#{@lon}&limit=5&radius_filter=2000&sort=1"
 
-    @response_yelp = JSON.parse(access_token.get(path).body)
+    @responseyelp = JSON.parse(access_token.get(path).body)
 
     @lat = cookies[:lat].to_f
     @lon = cookies[:lon].to_f
