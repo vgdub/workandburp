@@ -3,14 +3,12 @@ body{
   font-family: 'Advent Pro', sans-serif;
 }
 header{
-  height: 120px;
+line-height: 4em;
 }
 section{
   border-radius: 5px;
 }
-.logo {
 
-}
 
 .results-col, .map-col {
   background: #Facc14;
