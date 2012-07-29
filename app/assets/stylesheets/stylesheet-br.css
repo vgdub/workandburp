@@ -53,3 +53,7 @@ section{
   margin-top: 5px;
 }
 
+#map-canvas { 
+  width: 100%;
+  height: 100%; 
+  }
