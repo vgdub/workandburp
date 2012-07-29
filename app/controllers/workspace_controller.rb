@@ -27,7 +27,7 @@ class WorkspaceController < ApplicationController
     longitude = cookies[:lon]
 
     def split(a)
-        b = "%.6f" % a
+        b = "%.3f" % a
         return b
     end
 

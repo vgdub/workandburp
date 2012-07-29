@@ -23,12 +23,43 @@
   
   <%= csrf_meta_tags %>
 
-  <script type="text/javascript">
-    getGeoLocation();
-  </script>
+    <%- unless @lat %>
+		<script>
+		  getGeoLocation();
+		</script>
+	<%- end %>
+	
  <script type="text/javascript"
       src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCxlxFZTUEUpSSLvsvWgtjLXsV5dZZH-CI&sensor=true">
     </script>
+    <script type="text/javascript">
+        var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+var map;
+var start = new google.maps.LatLng(41.86593, -87.64686);
+var end = new google.maps.LatLng(41.88897, -87.63392);
+var isHeatmap = true;
+
+
+function initialize() {
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        var chicago = new google.maps.LatLng(41.850033, -87.6500523);
+        var mapOptions = {
+                zoom:10,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                center: chicago
+        }
+
+        map = new
+google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+        directionsDisplay.setMap(map);
+      </script>
+      <style type="text/css">
+      #map-canvas { 
+      	width: 100%;
+		height: 100%; 
+		}
+	   </style>
 </head>
 <body>
   <div class="container">

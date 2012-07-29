@@ -4,16 +4,21 @@ gem 'rails', '3.2.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+group :development, :test do
+  gem 'sqlite3', '1.3.6'
+end
 
-gem 'sqlite3'
-gem 'oauth'
+group :production do
+	gem 'pg'
+	gem 'thin'
+end
 
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'sass-rails'
+  gem 'coffee-rails', '3.2.2'
+  gem 'sass-rails',   '3.2.4'
   gem 'compass-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -25,6 +30,8 @@ end
 gem 'jquery-rails'
 
 gem 'zurb-foundation'
+gem 'oauth'
+gem 'heroku'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
