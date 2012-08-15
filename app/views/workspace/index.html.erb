@@ -9,8 +9,8 @@
 </header>
 
 <div class="row">
-  <section class="five columns results-col">
-    <h2>Listings:</h2>
+  <section class="four columns results-col">
+    <h2>BYOB LOCATIONS:</h2>
 
     <ul class="businesses">
       <% @response_citygrid['results']['locations'].each do |citygrid_hash| %>
@@ -33,8 +33,8 @@
     </ul>
 
   </section>
-  <section class="seven columns map-col">
-    Google map location containing pins where the places are located
+  <section class="four columns results-col">
+    <h2>WIFI LOCATIONS:</h2>
 
     <ul class="businesses">
       <% @responseyelp['businesses'].each do |biz_hash| %>
@@ -50,12 +50,9 @@
         </li>
       <% end  %>
     </ul>
-
-
-      <div id="map_canvas"></div>
-
-    
-
+  </section>
+  <section class="four columns map-col">
+    <div id="map_canvas"></div>
   </section>
   <footer></footer>
 </div> 

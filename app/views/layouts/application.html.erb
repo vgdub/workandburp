@@ -23,7 +23,7 @@
   
   <%= csrf_meta_tags %>
 
-<%- unless @lat %>
+<%- unless cookies[:lat] && cookies[:lon] %>
 	<script>
 	  getGeoLocation();
 	</script>

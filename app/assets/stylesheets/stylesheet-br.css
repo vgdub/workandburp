@@ -12,14 +12,18 @@ section{
   border-radius: 5px;
   box-shadow: 0 0 15px #cBa104;
 }
-.results-col, .map-col {
+.results-col {
   background: #Facc14;
-  height: 500px;
+  height: auto;
   overflow: scroll;
 }
 
+.map-col {
+  height: 500px;
+}
+
 .businesses {
-  width: 300px;
+  width: auto;
   margin: 0 auto;
   margin-top: 20px;
   border-radius: 5px;

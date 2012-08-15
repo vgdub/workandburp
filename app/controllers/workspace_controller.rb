@@ -24,7 +24,7 @@ class WorkspaceController < ApplicationController
     @responseyelp = JSON.parse(access_token.get(path).body)
 
     latitude = cookies[:lat]
-    longitude = cookies[:lon]
+    longitude = cookies[:lon] 
 
     def split(a)
         b = "%.3f" % a
@@ -41,7 +41,7 @@ class WorkspaceController < ApplicationController
     # @lon = cookies[:lon].to_f
     # @acc = cookies[:acc]
 
-    @response_citygrid = JSON.parse(open("http://api.citygridmedia.com/content/places/v2/search/latlon?what=B.Y.O.B&lat=#{@lat}&lon=#{@lon}&radius=7&page=1&rpp=5&sort=topmatches&publisher=test&format=json").read)
+    @response_citygrid = JSON.parse(open("http://api.citygridmedia.com/content/places/v2/search/latlon?what=B.Y.O.B&lat=#{@lat}&lon=#{@lon}&radius=4&page=1&rpp=5&sort=topmatches&publisher=test&format=json").read)
 
     
 
