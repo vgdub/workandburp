@@ -40,16 +40,16 @@ google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
 
 
-        var layer = new google.maps.FusionTablesLayer({
-                query: {
-                        select: 'location',
-                        from: '1KlcxGqe8GBKtCaeA0Pvjbd701kygcwjoOsn14fQ'
-                },
-heatmap: {
-                        enabled: isHeatmap
-                }
-        })
+//         var layer = new google.maps.FusionTablesLayer({
+//                 query: {
+//                         select: 'location',
+//                         from: '1KlcxGqe8GBKtCaeA0Pvjbd701kygcwjoOsn14fQ'
+//                 },
+// heatmap: {
+//                         enabled: isHeatmap
+//                 }
+//         })
 
-        layer.setMap(map);
+//         layer.setMap(map);
 
 }
