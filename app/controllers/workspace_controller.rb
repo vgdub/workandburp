@@ -41,7 +41,7 @@ class WorkspaceController < ApplicationController
     # @lon = cookies[:lon].to_f
     # @acc = cookies[:acc]
 
-    @response_citygrid = JSON.parse(open("http://api.citygridmedia.com/content/places/v2/search/latlon?what=B.Y.O.B&lat=#{@lat}&lon=#{@lon}&radius=4&page=1&rpp=5&sort=topmatches&publisher=test&format=json").read)
+    @response_citygrid = JSON.parse(open("http://api.citygridmedia.com/content/places/v2/search/latlon?what=B.Y.O.B&lat=#{@lat}&lon=#{@lon}&radius=2&page=1&rpp=5&sort=dist&publisher=test&format=json").read)
 
     
 

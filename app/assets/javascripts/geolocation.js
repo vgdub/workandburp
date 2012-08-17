@@ -26,17 +26,28 @@
   //   directionsDisplay.setMap(map);
 
 	  function initialize() {
-        directionsDisplay = new google.maps.DirectionsRenderer();
-        var chicago = new google.maps.LatLng(41.850033, -87.6500523);
+	  	navigator.geolocation.getCurrentPosition(setGeoLocation);
+		}
+
+		function setGeoLocation(position) {
+			var latitude = position.coords.latitude;
+		    var longitude = position.coords.longitude;
+		    var accuracy = position.coords.accuracy;
+
+        var location = new google.maps.LatLng(latitude, longitude);
         var mapOptions = {
-                zoom:10,
+                zoom:15,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
-                center: chicago
+                center: location
         }
 
-        map = new
-google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-        directionsDisplay.setMap(map);
+        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+        var marker = new google.maps.Marker({
+		      position: location,
+		      map: map,
+		      title:"Hello World!"
+		  });
 
 
 
